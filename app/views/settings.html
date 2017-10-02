@@ -1,0 +1,15 @@
+<!-- contenedor de configuracion -->
+<div class="container" ng-controller="controladorsettings">
+	<center>
+		<h5>Capital Actual = ${{capital}}</h5><!-- muestra el capital actual de la aplicacion-->
+		<li class="divider"></li>
+	</center>
+	<br>
+	<h3>Configuraciones</h3><!-- funciones de reseteo de localStorage -->
+	<center>
+		<button class="btn purple darken-1" style="margin:8px;" ng-click="resetCapital()">Resetear Capital</button><br>
+      	<button class="btn purple darken-1" style="margin:8px;" ng-click="resetClientes()">Resetear Clientes</button><br>
+    	<button class="btn purple darken-1" style="margin:8px;" ng-click="resetPrestamos()">Resetear Prestamos</button><br>
+    	<button class="btn purple darken-1" style="margin:8px;" ng-click="resetDeudores()">Resetear Deudores</button>
+	</center>  
+</div>

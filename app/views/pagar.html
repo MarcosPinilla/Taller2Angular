@@ -1,0 +1,41 @@
+<!-- contendor para mantener deudas con su controlador de pagos -->
+<div class="container" ng-controller="controladorpagos">
+	<center>
+		<h5>Capital Actual = ${{capital}}</h5><!-- muestra el capital actual de la aplicacion-->
+	</center>
+	<br>
+	<a class="waves-effect waves-light btn purple darken-1" ng-click="cambioVista('deudas')">Volver Atras</a><!-- vuelve atras -->
+	<h3>Gestión de Pagos</h3>
+	<li class="divider"></li>
+	<h4>Deudas de {{deudor.cliente.nombre}}</h4> <!-- muestra nombre de cliente -->
+	<li class="divider"></li>
+	<h5>Prestamo pedido: {{deudor.prestamo}}</h5> <!-- muestra cantidad pedida -->
+	<li class="divider"></li>
+	<table class="highlight responsive-table">
+        <thead>
+          <tr>
+              <th class="col s4">Monto</th>
+              
+              <th class="col s4">Acción</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="deuda in deudacli">
+            <td class="col s4">${{deuda.valor}}</td> <!-- muestra monto cuota -->
+            
+            <td class="col s4">
+            	<div ng-switch="deuda.pagado"> <!-- ngswitch muesta estado de pago y paga la cuota -->
+            		<div ng-switch-when="true">
+						<a class="waves-effect waves-light btn purple darken-1 disabled">Pagado</a>
+					</div>
+					<div ng-switch-when="false">
+						<a class="waves-effect waves-light btn purple darken-1" ng-click="pagarCuota($index)">Pagar</a> <!-- paga, llamando a la funcion pagar cuota -->
+					</div>
+				</div>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+
+</div>

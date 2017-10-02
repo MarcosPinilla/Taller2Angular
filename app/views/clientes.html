@@ -1,0 +1,51 @@
+<!-- contendor para mantener clientes -->
+<div class="container" ng-controller="controladorcliente">
+	<center>
+		<h5>Capital Actual = ${{capital}}</h5><!-- muestra el capital actual de la aplicacion-->
+	</center>
+	<br>
+	<h3>Gestión de Clientes</h3>
+	<!-- inputs para cliente -->
+	<div class="row">
+		<div class="input-field col s3">
+			<input class="validate" type="text" id="nombre" ng-model="nuevoCliente.nombre" pattern="[a-zA-Z]*"><!-- recibe el nombre de cliente -->
+			<label for="nombre">Nombre</label>
+		</div>
+		<div class="input-field col s3">
+			<input class="validate" type="text" id="email" ng-model="nuevoCliente.email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"><!-- recibe el email -->
+			<label for="email">Email</label>
+		</div>
+		<div class="input-field col s3">
+			<input class="validate" type="text" id="telefono" ng-model="nuevoCliente.telefono" pattern="[9]{1,1}[0-9]{8,8}" required><!-- recibe el telefono -->
+			<label for="telefono">Telefono</label>
+		</div>
+		<div class="col s3">
+			<button class="btn valign-wrapper purple darken-1" ng-click="addCliente(nuevoCliente)">Añadir Cliente</button> <!-- añade cliente llamando a la funcion addCliente(modelo) -->
+		</div>
+	</div>
+	<!-- contenedor para mostrar clientes -->
+	
+	<h4>Clientes</h4>
+	<li class="divider"></li>
+	<table class="highlight responsive-table">
+        <thead>
+          <tr>
+              <th class="col s2">Nombre</th>
+              <th class="col s2">Email</th>
+              <th class="col s2">Telefono</th>
+              <th class="col s2"></th>
+              <th class="col s2"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="cliente in clientes">
+            <td class="col s2">{{cliente.nombre}}</td><!-- muestra nombre de clientes -->
+            <td class="col s2">{{cliente.email}}</td><!-- muestra email de clientes -->
+            <td class="col s2">{{cliente.telefono}}</td>
+            <td class="col s2"><button class="btn purple darken-1" ng-click="updateCliente($index,nuevoCliente)">Actualizar</button></td><!-- actualiza el cliente -->
+            <td class="col s2"><button class="btn purple darken-1" ng-click="removeCliente($index)">Eliminar</button></td><!-- eliminar el cliente -->
+          </tr>
+        </tbody>
+    </table>
+</div>

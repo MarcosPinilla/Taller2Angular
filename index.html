@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app"><!-- asociacion de la app a el html -->
+<head>
+	<meta charset="utf-8">
+	<title>Taller 2</title>
+	<!-- Compiled and minified CSS -->
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<!--Let browser know website is optimized for mobile-->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  	<script type="text/javascript" src="lib/js/angular.min.js"></script>
+  	<script type="text/javascript" src="app/app.js"></script><!-- asociacion del script app a el html -->
+  	<script type="text/javascript" src="app/controllers/controller.js"></script><!-- asociacion del script controlador a el html -->
+  	<script type="text/javascript" src="app/controllers/controllerCliente.js"></script><!-- asociacion del script controlador de cliente a el index -->
+  	<script type="text/javascript" src="app/controllers/controllerPrestamo.js"></script><!-- asociacion del script controlador de prestamos a el index -->
+  	<script type="text/javascript" src="app/controllers/controllerDeudas.js"></script><!-- asociacion del script controlador de deudas a el index -->
+  	<script type="text/javascript" src="app/controllers/controllerPagos.js"></script><!-- asociacion del script controlador de pagos en cuotas a el index -->
+  	<script type="text/javascript" src="app/controllers/controllerSettings.js"></script><!-- asociacion del script controlador de configuraciones a el index -->
+</head>
+<body ng-controller="controladoraplicacion" class="purple lighten-4"><!-- asociacion del script controlador a el body -->
+	<nav class="nav-extended purple darken-4">
+	    <div class="nav-wrapper">
+	      <a href="#" class="brand-logo" style="padding-left: 10px">Marcos Pinilla Bank</a>
+	      <button class="btn purple darken-1" ng-click="cambioVista('settings')" style="position: relative;float: right;margin: 4px;">Configuración</button>
+	    </div>
+	    <li class="divider"></li>
+	    <div class="nav-content">
+	      <ul class="tabs tabs-transparent"><!-- tabs para cambiar vistas -->
+	        <li class="tab"><a href="#" ng-click="cambioVista('clientes')">Clientes</a></li>
+	        <li class="tab"><a href="#" ng-click="cambioVista('prestamos')">Prestamos</a></li>
+	        <li class="tab"><a href="#" ng-click="cambioVista('deudas')">Deudas</a></li>
+	      </ul>
+	    </div>
+	</nav>
+	
+	
+	<div ng-include="menu"></div><!-- incluir "menu" que sera donde se mostraran las vistas-->
+	
+	<script src="lib/js/ngStorage.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+          
+</body>
+</html>

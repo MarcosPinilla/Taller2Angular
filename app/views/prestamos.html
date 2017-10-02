@@ -1,0 +1,36 @@
+<!-- contendor para mantener prestamos -->
+<div class="container" ng-controller="controladorprestamos"><!--div gestion de prestamos con controlador de prestamos -->
+	<center>
+		<h5>Capital Actual = ${{capital}}</h5><!-- muestra el capital actual de la aplicacion-->
+	</center>
+	<br>
+	<h3>Gestión de Prestamos</h3>
+	<li class="divider"></li>
+	<h4>Prestamos</h4>
+	<li class="divider"></li>
+	<table class="highlight responsive-table">
+        <thead>
+          <tr>
+              <th class="col s3">Nombre</th>
+              <th class="col s3">Cantidad</th>
+              <th class="col s3">Cuotas</th>
+              <th class="col s3">Acción</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="cliente in clientes">
+            <td class="col s3">{{cliente.nombre}}</td>
+            <td class="col s3 input-field">
+            	
+				<input class="validate" type="text" id="cantidad" ng-model="prestamo.dinero" pattern="[0-9]*" required><!-- cantidad de dinero a pedir -->
+				<label for="cantidad">Cantidad</label>
+            </td>
+            <td class="col s3">
+            	<select class="browser-default" ng-model="cuotacli" ng-options="cuotacli as cuotacli.n_cuotas for cuotacli in cuotas"></select><!-- elegir cuotas -->
+            </td>
+            <td class="col s3"><button class="btn purple darken-1" ng-click="pedirPrestamo($index)">Pedir Prestamo</button></td><!-- se pide prestamo y se generan cuotas de pago -->
+          </tr>
+        </tbody>
+    </table>
+</div>
